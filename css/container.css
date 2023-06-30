@@ -1,0 +1,22 @@
+.container{
+    background-color: black;
+    margin: 25% 25%;
+    text-align: center;
+}
+
+.container__content{
+    background-color:blanchedalmond;
+    width: 200px;
+    height: 200px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: xx-large;
+    transition:1s;
+}
+.container__content:hover{
+    background-color: hsl(36, 100%, 80%);
+    transform: rotate(360deg) scale(1.5);
+}
+
+
+
