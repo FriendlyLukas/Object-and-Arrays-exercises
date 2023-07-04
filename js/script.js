@@ -16,26 +16,14 @@ const exceptFirst = (a, ...otherParameters) => {
 
 console.log("last2Parameters(parametr(1),...,parameter(n)");
 
-const last2Parameters = (firstParameter, ...otherParameters) =>{
-    
-    if (otherParameters.length === 0) {
-        return [firstParameter]
-    } if (otherParameters.length === 1) {
-        return [firstParameter, ...otherParameters]
-    } else {
-        return [otherParameters.slice(-2,otherParameters.lenght)]
-    }
-}
+const last2Parameters = (...elements) => elements.slice(-2);
+console.log("Zadanie 3.", last2Parameters(2, 3, undefined, true));
 
 console.log(last2Parameters(1,2)); 
 
 //zadanie 4 
-
-console.log("indexOf(searching element, array");
-
-const indexOf = (element, array) => {
-    console.log("Index of element: ", array.indexOf(element));
-}
+const indexOfElement = (element, array) => array.indexOf(element);
+console.log("Zadanie 4.", indexOfElement("kawa", ["rum", "kawa", "sangria"]))
 
 //zadanie 5 
 
@@ -58,9 +46,7 @@ const oddIndex = (Array) => {
 
 console.log("hasStrawberry(array)");
 
-const hasStrawberry = (fruits) => {
-   return fruits.includes("strawberry")
-};
+const hasStrawberry = (fruits) => fruits.includes("strawberry");
 
 //zadanie 8
 
@@ -92,18 +78,25 @@ const filterPremium = (carBrands) => carBrands.filter(includesPremium);
 
 console.log("getColor(object: {car: ?, color: ?})");
 
-const getColors = (cars) => {
-    const getColor = ({color}) => `${color}`;
+const getColors = (...cars) => {
+    const getColor = ({color}) => {color};
     return cars.map(getColor);
+
 }
+console.log(
+    "Zadanie 11.",
+    getColors(
+        { car: "BMW X5", color: "black" },
+        { car: "Peugeot 3008", color: "white" }
+    )
+);
 
 //zadanie 12 
 
 console.log("sortPeople(object: {name: ?, age: ?})");
 
-const persons = [
+const people = [
         {name: "Jan", age: "14"},
         {name: "Adam", age: "13"},
     ];
-    const getAge = ({age}) => `${age}`;
-    const sortPeople = persons.sort((a,b) => getAge(a).localeCompare(getAge(b)));
+    const sortPeople = ([...people]) => people.sort((a, b) => a.age - b.age); 
